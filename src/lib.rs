@@ -1,9 +1,16 @@
 
 pub mod requests {
     pub mod courier_shipments {
-        pub mod get_couriers_list;
         pub mod create_package;
         pub mod create_package_manual;
+        pub mod get_couriers_list;
+        pub mod get_courier_fields;
+        pub mod get_courier_services;
+        pub mod get_courier_accounts;
+        pub mod get_label;
+        pub mod get_order_packages;
+        pub mod get_courier_packages_status_history;
+        pub mod delete_courier_package;
     }
 }
 
