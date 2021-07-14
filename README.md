@@ -1,6 +1,6 @@
 # BaseLinker.com API client for Rust
 
-This library is incomplete
+This library is incomplete. I started it as a direct port of https://github.com/bugproof/BaseLinkerApi
 
 ## Usage
 
