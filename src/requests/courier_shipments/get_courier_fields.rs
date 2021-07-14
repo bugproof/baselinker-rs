@@ -2,7 +2,7 @@ use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use std::collections::HashMap;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Field {
     /// The field ID
     pub id: String,
@@ -29,7 +29,7 @@ pub struct Field {
     pub value: Option<serde_json::Value>,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct PackageField {
     /// The field ID
     pub id: String,
@@ -43,7 +43,7 @@ pub struct PackageField {
     pub package_field_default: Option<String>,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetCourierFieldsResponse {
     /// Does the courier support multiple shipments.
     pub multi_packages: bool,
@@ -54,7 +54,7 @@ pub struct GetCourierFieldsResponse {
 }
 
 /// The method allows you to retrieve the form fields for creating shipments for the selected courier.
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetCourierFields {
     /// Courier code
     pub courier_code: String,

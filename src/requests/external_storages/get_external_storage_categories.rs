@@ -1,21 +1,21 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Category {
     pub category_id: i64,
     pub name: String,
     pub parent_id: i64,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageCategoriesResponse {
     pub storage_id: String,
     pub categories: Vec<Category>,
 }
 
 /// The method allows you to retrieve a category list from an external storage (shop/wholesale) connected to BaseLinker.
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageCategories {
     /// Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445").
     pub storage_id: String,

@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetLabelResponse {
     /// Label file extension (pdf, html, gif, png, epl, zpl, dpl).
     pub extension: String,
@@ -10,7 +10,7 @@ pub struct GetLabelResponse {
 }
 
 /// The method allows you to download a shipping label (consignment) for a selected shipment.
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetLabel {
     /// Courier code
     pub courier_code: String,

@@ -2,7 +2,7 @@ use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use std::collections::HashMap;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Variant {
     pub variant_id: String,
     pub name: String,
@@ -12,7 +12,7 @@ pub struct Variant {
     pub ean: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: i64,
     pub price_wholesale_netto: f64,
@@ -48,13 +48,13 @@ pub struct Product {
 //     String(String),
 // }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageProductsDataResponse {
     pub storage_id: String,
     pub products: HashMap<String, Product>,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageProductsData {
     pub storage_id: String,
     pub products: Vec<i64>,

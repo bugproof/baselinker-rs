@@ -3,7 +3,7 @@ use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
 
 /// The method allows you to delete a previously created shipment. The method removes the shipment from the BaseLinker system and from the courier system if the courier API allows it
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct DeleteCourierPackage {
     /// Courier code
     pub courier_code: String,

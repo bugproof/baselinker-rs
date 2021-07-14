@@ -1,8 +1,7 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use std::collections::HashMap;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: String,
     pub ean: String,
@@ -12,13 +11,13 @@ pub struct Product {
     pub price_brutto: f64,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageProductsListResponse {
     pub storage_id: String,
     pub products: Vec<Product>,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct GetExternalStorageProductsList {
     pub storage_id: String,
     pub filter_category_id: Option<String>,
