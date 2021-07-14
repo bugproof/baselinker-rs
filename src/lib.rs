@@ -22,6 +22,15 @@ pub mod requests {
         pub mod get_external_storage_products_prices;
         pub mod update_external_storage_products_quantity;
     }
+
+    pub mod orders {
+        pub mod get_journal_list;
+        pub mod add_order;
+        pub mod get_orders;
+        pub mod get_orders_by_email;
+        pub mod get_orders_by_phone;
+        pub mod add_invoice;
+    }
 }
 
 pub mod common;
