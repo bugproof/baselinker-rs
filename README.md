@@ -2,6 +2,8 @@
 
 This library is incomplete. I started it as a direct port of https://github.com/bugproof/BaseLinkerApi
 
+PRs and bug reports are always welcome
+
 ## Usage
 
 ```rs
