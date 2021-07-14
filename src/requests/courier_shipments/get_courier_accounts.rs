@@ -1,7 +1,5 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use crate::requests::courier_shipments::create_package::{Field, Package};
-use std::collections::HashMap;
 
 #[derive(Deserialize)]
 pub struct Account {
