@@ -12,14 +12,14 @@ pub struct Field {
 #[derive(Serialize)]
 pub struct Package {
     /// centimeters
-    pub length: f32,
+    pub length: f64,
     /// centimeters
-    pub height: f32,
+    pub height: f64,
     /// centimeters
-    pub width: f32,
+    pub width: f64,
     /// kilograms
-    pub weight: f32,
-    pub size_custom: f32,
+    pub weight: f64,
+    pub size_custom: f64,
 }
 
 /// The method allows you to create a shipment in the system of the selected courier.

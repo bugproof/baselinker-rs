@@ -12,6 +12,16 @@ pub mod requests {
         pub mod get_courier_packages_status_history;
         pub mod delete_courier_package;
     }
+
+    pub mod external_storages {
+        pub mod get_external_storages_list;
+        pub mod get_external_storage_categories;
+        pub mod get_external_storage_products_data;
+        pub mod get_external_storage_products_list;
+        pub mod get_external_storage_products_quantity;
+        pub mod get_external_storage_products_prices;
+        pub mod update_external_storage_products_quantity;
+    }
 }
 
 pub mod common;
