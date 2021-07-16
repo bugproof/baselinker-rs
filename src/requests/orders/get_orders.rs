@@ -1,6 +1,8 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use chrono::{DateTime, Utc};
+use chrono::serde::ts_seconds;
+use chrono::serde::ts_seconds_option;
 
 #[derive(Serialize, Deserialize)]
 pub struct Order {
@@ -83,9 +85,9 @@ pub struct GetOrdersResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetOrders {
     pub order_id: Option<i64>,
-    #[serde(with = "ts_seconds")]
+    #[serde(with = "ts_seconds_option")]
     pub date_confirmed_from: Option<DateTime<Utc>>,
-    #[serde(with = "ts_seconds")]
+    #[serde(with = "ts_seconds_option")]
     pub date_from: Option<DateTime<Utc>>,
     pub get_unconfirmed_orders: Option<bool>,
     pub status_id: Option<i64>,

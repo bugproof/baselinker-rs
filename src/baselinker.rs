@@ -1,7 +1,8 @@
-use crate::common::{RequestTrait, BaseLinkerError};
+use crate::common::{RequestTrait, BaseLinkerError, Error};
 use serde::de::DeserializeOwned;
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
+use std::result::Result::Err;
 
 #[derive(Deserialize)]
 struct BaseLinkerResponse {
@@ -24,7 +25,7 @@ impl BaseLinkerClient {
         }
     }
 
-    pub async fn send<Request, Response>(&self, request: &Request) -> Result<Response, BaseLinkerError>
+    pub async fn send<Request, Response>(&self, request: &Request) -> Result<Response, Error>
         where Request: RequestTrait<Response> + Serialize,
               Response: DeserializeOwned
     {
@@ -37,13 +38,13 @@ impl BaseLinkerClient {
 
         let response = self.http_client.post("https://api.baselinker.com/connector.php")
             .form(&params)
-            .send().await.unwrap();
+            .send().await?;
 
         let text = response.text().await.unwrap();
 
         let api_response = serde_json::from_str::<BaseLinkerResponse>(text.as_str()).unwrap();
         if api_response.status != "SUCCESS" {
-            return Err(api_response.error.unwrap());
+            return Err(Error::BaseLinkerError(api_response.error.unwrap()));
         }
 
         return Ok(serde_json::from_str(text.as_str()).unwrap());

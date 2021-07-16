@@ -40,6 +40,7 @@ pub mod baselinker;
 mod tests {
     use crate::requests::courier_shipments::get_couriers_list::GetCouriersList;
     use crate::baselinker::BaseLinkerClient;
+    use crate::common::Error;
 
     #[tokio::test]
     async fn it_works() {
@@ -53,7 +54,12 @@ mod tests {
                 }
             },
             Err(err) => {
-                println!("Error! {} {}", err.code, err.message);
+                match err {
+                    Error::BaseLinkerError(baselinker_error) => {
+                        println!("Error! {} {}", baselinker_error.code, baselinker_error.message);
+                    }
+                    Error::NetworkError(_) => {}
+                }
             }
         }
 
