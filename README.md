@@ -18,7 +18,12 @@ match api_result {
         }
     },
     Err(err) => {
-        println!("Error! {} {}", err.code, err.message);
+        match err {
+            Error::BaseLinkerError(baselinker_error) => {
+                println!("Error! {} {}", baselinker_error.code, baselinker_error.message);
+            }
+            Error::NetworkError(_) => {}
+        }
     }
 }
 ```
