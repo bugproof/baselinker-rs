@@ -30,6 +30,8 @@ pub mod requests {
         pub mod get_orders_by_email;
         pub mod get_orders_by_phone;
         pub mod add_invoice;
+        pub mod get_order_sources;
+        pub mod get_order_transaction_details;
     }
 }
 

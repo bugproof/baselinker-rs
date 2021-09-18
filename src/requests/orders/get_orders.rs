@@ -72,7 +72,7 @@ pub struct Product {
     pub ean: String,
     pub auction_id: String,
     pub price_brutto: f64,
-    pub tax_rate: i64,
+    pub tax_rate: f64,
     pub quantity: i64,
     pub weight: i64,
 }

@@ -18,7 +18,7 @@ pub struct Product {
     pub sku: String,
     pub ean: String,
     pub price_brutto: f64,
-    pub tax_rate: i64,
+    pub tax_rate: f64,
     pub quantity: i64,
     pub weight: f64,
 }
@@ -27,6 +27,7 @@ pub struct Product {
 #[derive(Serialize, Deserialize)]
 pub struct AddOrder {
     pub order_status_id: String,
+    pub source_id: Option<i64>,
     #[serde(with = "ts_seconds")]
     pub date_add: DateTime<Utc>,
     pub user_comments: String,

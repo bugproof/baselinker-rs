@@ -18,7 +18,7 @@ pub struct Product {
     pub price_wholesale_netto: f64,
     pub price_netto: f64,
     pub price_brutto: Option<String>,
-    pub tax_rate: i64,
+    pub tax_rate: f64,
     pub name: String,
     pub quantity: i64,
     pub category_id: String,
