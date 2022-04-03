@@ -32,11 +32,11 @@ impl BaseLinkerClient {
         let parameters = serde_json::to_string(request).unwrap();
 
         let mut params = HashMap::new();
-        params.insert("token", self.token.as_str());
         params.insert("method", Request::METHOD);
         params.insert("parameters", parameters.as_str());
 
         let response = self.http_client.post("https://api.baselinker.com/connector.php")
+            .header("X-BLToken", self.token.as_str())
             .form(&params)
             .send().await?;
 

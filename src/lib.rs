@@ -37,34 +37,3 @@ pub mod requests {
 
 pub mod common;
 pub mod baselinker;
-
-#[cfg(test)]
-mod tests {
-    use crate::requests::courier_shipments::get_couriers_list::GetCouriersList;
-    use crate::baselinker::BaseLinkerClient;
-    use crate::common::Error;
-
-    #[tokio::test]
-    async fn it_works() {
-        // not really a test just was lazy to create an example console app
-        let baselinker = BaseLinkerClient::new("3001646-3007387-D7KZKSX8A2JFJEX41KG9YNBCQEPLYBHKRVSNM4QC0DWSN29226CZVVDSGR6A5WR6".to_owned(), reqwest::Client::new());
-        let api_result = baselinker.send(&GetCouriersList {}).await;
-        match api_result {
-            Ok(response) => {
-                for courier in response.couriers {
-                    println!("Courier: {} {}", courier.code, courier.name);
-                }
-            },
-            Err(err) => {
-                match err {
-                    Error::BaseLinkerError(baselinker_error) => {
-                        println!("Error! {} {}", baselinker_error.code, baselinker_error.message);
-                    }
-                    Error::NetworkError(_) => {}
-                }
-            }
-        }
-
-        assert_eq!(2 + 2, 4);
-    }
-}
