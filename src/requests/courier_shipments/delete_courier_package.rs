@@ -1,5 +1,6 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use crate::serialization::inconsistent_bool_option;
 use serde::de::IgnoredAny;
 
 /// The method allows you to delete a previously created shipment. The method removes the shipment from the BaseLinker system and from the courier system if the courier API allows it
@@ -12,6 +13,7 @@ pub struct DeleteCourierPackage {
     /// Shipping number (consignment number), optional if package_id was provided
     pub package_number: Option<String>,
     /// (optional, false by default) Forcing a shipment to be removed from BaseLinker database in the case of an error with the removal of the shipment in the courier API.
+    #[serde(deserialize_with = "inconsistent_bool_option")]
     pub force_delete: Option<bool>,
 }
 

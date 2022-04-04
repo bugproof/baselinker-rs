@@ -3,6 +3,8 @@ use crate::common::RequestTrait;
 use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
+use crate::serialization::inconsistent_bool;
+use crate::serialization::inconsistent_bool_option;
 
 #[derive(Serialize, Deserialize)]
 pub struct Order {
@@ -50,6 +52,7 @@ pub struct Order {
     pub invoice_city: String,
     pub invoice_postcode: String,
     pub invoice_country: String,
+    #[serde(deserialize_with = "inconsistent_bool")]
     pub want_invoice: bool,
     pub extra_field_1: String,
     pub extra_field_2: String,
@@ -89,6 +92,7 @@ pub struct GetOrders {
     pub date_confirmed_from: Option<DateTime<Utc>>,
     #[serde(with = "ts_seconds_option")]
     pub date_from: Option<DateTime<Utc>>,
+    #[serde(deserialize_with = "inconsistent_bool_option")]
     pub get_unconfirmed_orders: Option<bool>,
     pub status_id: Option<i64>,
     pub filter_email: Option<String>

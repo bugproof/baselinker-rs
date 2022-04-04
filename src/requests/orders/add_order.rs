@@ -1,5 +1,6 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use crate::serialization::inconsistent_bool;
 use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
 
@@ -59,6 +60,7 @@ pub struct AddOrder {
     pub invoice_city: String,
     pub invoice_postcode: String,
     pub invoice_country_code: String,
+    #[serde(deserialize_with = "inconsistent_bool")]
     pub want_invoice: bool,
     pub extra_field_1: String,
     pub extra_field_2: String,

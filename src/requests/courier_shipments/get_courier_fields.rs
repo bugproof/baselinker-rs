@@ -1,5 +1,6 @@
 use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use crate::serialization::inconsistent_bool;
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -46,6 +47,7 @@ pub struct PackageField {
 #[derive(Serialize, Deserialize)]
 pub struct GetCourierFieldsResponse {
     /// Does the courier support multiple shipments.
+    #[serde(deserialize_with = "inconsistent_bool")]
     pub multi_packages: bool,
     /// An array with a list of fields to create a shipment
     pub fields: Vec<Field>,

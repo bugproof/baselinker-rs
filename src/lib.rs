@@ -1,3 +1,4 @@
+mod serialization;
 
 pub mod requests {
     pub mod courier_shipments {
