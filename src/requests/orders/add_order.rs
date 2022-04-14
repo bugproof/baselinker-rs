@@ -18,6 +18,8 @@ pub struct Product {
     pub name: String,
     pub sku: String,
     pub ean: String,
+    pub location: String,
+    pub warehouse_id: i64,
     pub price_brutto: f64,
     pub tax_rate: f64,
     pub quantity: i64,
