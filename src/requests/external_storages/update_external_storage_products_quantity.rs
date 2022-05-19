@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct UpdateExternalStorageProductsQuantityResponse {
@@ -13,4 +13,8 @@ pub struct UpdateExternalStorageProductsQuantity {
     pub products: Vec<Vec<i64>>,
 }
 
-impl RequestTrait<UpdateExternalStorageProductsQuantityResponse> for UpdateExternalStorageProductsQuantity { const METHOD: &'static str = "updateExternalStorageProductsQuantity"; }
+impl RequestTrait<UpdateExternalStorageProductsQuantityResponse>
+    for UpdateExternalStorageProductsQuantity
+{
+    const METHOD: &'static str = "updateExternalStorageProductsQuantity";
+}

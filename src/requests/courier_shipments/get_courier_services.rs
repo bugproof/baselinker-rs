@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::requests::courier_shipments::create_package::{Field, Package};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -10,7 +10,7 @@ pub struct GetCourierServicesResponse {
     /// The key to each element is the service id (varchar)
     ///
     /// Value is the name of the service (varchar)
-    pub services: HashMap<String, String>
+    pub services: HashMap<String, String>,
 }
 
 // A copy of createPackage...
@@ -37,4 +37,6 @@ pub struct GetCourierServices {
     pub packages: Vec<Package>,
 }
 
-impl RequestTrait<GetCourierServicesResponse> for GetCourierServices { const METHOD: &'static str = "getCourierServices"; }
+impl RequestTrait<GetCourierServicesResponse> for GetCourierServices {
+    const METHOD: &'static str = "getCourierServices";
+}

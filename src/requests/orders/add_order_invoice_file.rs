@@ -1,8 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use crate::serialization::inconsistent_bool;
-use chrono::{DateTime, Utc};
-use chrono::serde::ts_seconds;
+use serde::{Deserialize, Serialize};
+
 use serde::de::IgnoredAny;
 
 /// The method allows you to add an external PDF file to an invoice previously issued from BaseLinker.
@@ -17,4 +15,6 @@ pub struct AddOrderInvoiceFile {
     pub external_invoice_number: String,
 }
 
-impl RequestTrait<IgnoredAny> for AddOrderInvoiceFile { const METHOD: &'static str = "addOrderInvoiceFile"; }
+impl RequestTrait<IgnoredAny> for AddOrderInvoiceFile {
+    const METHOD: &'static str = "addOrderInvoiceFile";
+}

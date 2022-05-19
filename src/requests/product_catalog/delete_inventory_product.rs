@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove the product from BaseLinker catalog.
 #[derive(Serialize, Deserialize)]
@@ -9,4 +9,6 @@ pub struct DeleteInventoryProduct {
     pub product_id: i64,
 }
 
-impl RequestTrait<IgnoredAny> for DeleteInventoryProduct { const METHOD: &'static str = "deleteInventoryProduct"; }
+impl RequestTrait<IgnoredAny> for DeleteInventoryProduct {
+    const METHOD: &'static str = "deleteInventoryProduct";
+}

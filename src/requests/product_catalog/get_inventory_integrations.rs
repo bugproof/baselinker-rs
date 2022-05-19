@@ -1,6 +1,6 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
 pub struct InventoryIntegration {
@@ -18,4 +18,6 @@ pub struct GetInventoryIntegrations {
     pub inventory_id: i64,
 }
 
-impl RequestTrait<GetInventoryIntegrationsResponse> for GetInventoryIntegrations { const METHOD: &'static str = "getInventoryIntegrations"; }
+impl RequestTrait<GetInventoryIntegrationsResponse> for GetInventoryIntegrations {
+    const METHOD: &'static str = "getInventoryIntegrations";
+}

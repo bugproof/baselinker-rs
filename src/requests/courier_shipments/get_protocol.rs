@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct GetProtocolResponse {
@@ -22,4 +22,6 @@ pub struct GetProtocol {
     pub account_id: i64,
 }
 
-impl RequestTrait<GetProtocolResponse> for GetProtocol { const METHOD: &'static str = "getProtocol"; }
+impl RequestTrait<GetProtocolResponse> for GetProtocol {
+    const METHOD: &'static str = "getProtocol";
+}

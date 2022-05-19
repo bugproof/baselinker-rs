@@ -1,8 +1,8 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct InvoiceItem {
@@ -44,7 +44,7 @@ pub struct Invoice {
     pub invoice_postcode: String,
     pub invoice_city: String,
     pub invoice_country: String,
-    pub invoice_country_code :String,
+    pub invoice_country_code: String,
     pub seller: String,
     // TODO: serde flatten instead of all Option?...
     pub correcting_to_invoice_id: Option<i64>,
@@ -87,4 +87,6 @@ pub struct GetInvoices {
     pub get_external_invoices: Option<bool>,
 }
 
-impl RequestTrait<GetInvoicesResponse> for GetInvoices { const METHOD: &'static str = "getInvoices"; }
+impl RequestTrait<GetInvoicesResponse> for GetInvoices {
+    const METHOD: &'static str = "getInvoices";
+}

@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct InventoryPriceGroup {
@@ -20,4 +20,6 @@ pub struct GetInventoryPriceGroupsResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetInventoryPriceGroups {}
 
-impl RequestTrait<GetInventoryPriceGroupsResponse> for GetInventoryPriceGroups { const METHOD: &'static str = "getInventoryPriceGroups"; }
+impl RequestTrait<GetInventoryPriceGroupsResponse> for GetInventoryPriceGroups {
+    const METHOD: &'static str = "getInventoryPriceGroups";
+}

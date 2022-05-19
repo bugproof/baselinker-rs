@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -60,4 +60,6 @@ pub struct GetExternalStorageProductsData {
     pub products: Vec<i64>,
 }
 
-impl RequestTrait<GetExternalStorageProductsDataResponse> for GetExternalStorageProductsData { const METHOD: &'static str = "getExternalStorageProductsData"; }
+impl RequestTrait<GetExternalStorageProductsDataResponse> for GetExternalStorageProductsData {
+    const METHOD: &'static str = "getExternalStorageProductsData";
+}

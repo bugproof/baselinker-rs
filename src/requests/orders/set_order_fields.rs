@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to edit selected fields (e.g. address data, notes, etc.) of a specific order.
 ///
@@ -41,4 +41,6 @@ pub struct SetOrderFields {
     pub pack_state: Option<i64>,
 }
 
-impl RequestTrait<IgnoredAny> for SetOrderFields { const METHOD: &'static str = "setOrderFields"; }
+impl RequestTrait<IgnoredAny> for SetOrderFields {
+    const METHOD: &'static str = "setOrderFields";
+}

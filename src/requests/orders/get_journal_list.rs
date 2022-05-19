@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Log {
@@ -20,7 +20,9 @@ pub struct GetJournalListResponse {
 pub struct GetJournalList {
     pub last_log_id: i64,
     pub logs_types: Vec<i64>,
-    pub order_id: Option<i64>
+    pub order_id: Option<i64>,
 }
 
-impl RequestTrait<GetJournalListResponse> for GetJournalList { const METHOD: &'static str = "getJournalList"; }
+impl RequestTrait<GetJournalListResponse> for GetJournalList {
+    const METHOD: &'static str = "getJournalList";
+}

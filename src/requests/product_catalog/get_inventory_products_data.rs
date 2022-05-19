@@ -1,7 +1,7 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::requests::product_catalog::add_inventory_product::ProductLink;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
 pub struct DetailedProductData {
@@ -35,4 +35,6 @@ pub struct GetInventoryProductsData {
     pub products: Vec<String>,
 }
 
-impl RequestTrait<GetInventoryProductsDataResponse> for GetInventoryProductsData { const METHOD: &'static str = "getInventoryProductsData"; }
+impl RequestTrait<GetInventoryProductsDataResponse> for GetInventoryProductsData {
+    const METHOD: &'static str = "getInventoryProductsData";
+}

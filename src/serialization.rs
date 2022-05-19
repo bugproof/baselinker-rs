@@ -1,9 +1,10 @@
-use std::fmt;
 use serde::de;
-use serde::de::{Deserializer};
+use serde::de::Deserializer;
+use std::fmt;
 
 pub fn inconsistent_bool<'de, D>(deserializer: D) -> Result<bool, D::Error>
-    where D: Deserializer<'de>
+where
+    D: Deserializer<'de>,
 {
     deserializer.deserialize_any(InconsistentBoolVisitor)
 }
@@ -41,9 +42,10 @@ impl<'de> de::Visitor<'de> for InconsistentBoolVisitor {
 }
 
 pub fn inconsistent_bool_option<'de, D>(deserializer: D) -> Result<Option<bool>, D::Error>
-    where D: Deserializer<'de>
+where
+    D: Deserializer<'de>,
 {
-    Ok(deserializer.deserialize_option(OptionInconsistentBoolVisitor)?)
+    deserializer.deserialize_option(OptionInconsistentBoolVisitor)
 }
 
 struct OptionInconsistentBoolVisitor;
@@ -56,19 +58,24 @@ impl<'de> de::Visitor<'de> for OptionInconsistentBoolVisitor {
     }
 
     fn visit_none<E>(self) -> Result<Option<bool>, E>
-        where E: de::Error,
+    where
+        E: de::Error,
     {
         Ok(None)
     }
 
     fn visit_some<D>(self, deserializer: D) -> Result<Option<bool>, D::Error>
-        where D: de::Deserializer<'de>,
+    where
+        D: de::Deserializer<'de>,
     {
-        deserializer.deserialize_any(InconsistentBoolVisitor).map(Some)
+        deserializer
+            .deserialize_any(InconsistentBoolVisitor)
+            .map(Some)
     }
 
     fn visit_unit<E>(self) -> Result<Option<bool>, E>
-        where E: de::Error,
+    where
+        E: de::Error,
     {
         Ok(None)
     }

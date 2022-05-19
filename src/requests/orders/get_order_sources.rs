@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -9,4 +9,6 @@ pub struct GetOrderSourcesResponse {
 
 #[derive(Serialize, Deserialize)]
 pub struct GetOrderSources {}
-impl RequestTrait<GetOrderSourcesResponse> for GetOrderSources { const METHOD: &'static str = "getOrderSources"; }
+impl RequestTrait<GetOrderSourcesResponse> for GetOrderSources {
+    const METHOD: &'static str = "getOrderSources";
+}

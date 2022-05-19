@@ -1,9 +1,8 @@
-use chrono::{DateTime, Utc};
+use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
-use serde::{Serialize, Deserialize};
-use crate::common::RequestTrait;
-use crate::serialization::inconsistent_bool;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 // TODO: verify this
 
@@ -52,4 +51,6 @@ pub struct GetInventoryProductLogs {
     pub page: Option<i64>,
 }
 
-impl RequestTrait<GetInventoryProductLogsResponse> for GetInventoryProductLogs { const METHOD: &'static str = "getInventoryProductLogs"; }
+impl RequestTrait<GetInventoryProductLogsResponse> for GetInventoryProductLogs {
+    const METHOD: &'static str = "getInventoryProductLogs";
+}

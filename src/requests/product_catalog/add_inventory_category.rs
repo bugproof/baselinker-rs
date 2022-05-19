@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct AddInventoryCategoryResponse {
@@ -32,4 +32,6 @@ pub struct AddInventoryCategory {
     pub parent_id: i64,
 }
 
-impl RequestTrait<AddInventoryCategoryResponse> for AddInventoryCategory { const METHOD: &'static str = "addInventoryCategory"; }
+impl RequestTrait<AddInventoryCategoryResponse> for AddInventoryCategory {
+    const METHOD: &'static str = "addInventoryCategory";
+}

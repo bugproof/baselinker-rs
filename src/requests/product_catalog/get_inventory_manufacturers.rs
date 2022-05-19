@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct InventoryManufacturer {
@@ -15,4 +15,6 @@ pub struct GetInventoryManufacturersResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetInventoryManufacturers {}
 
-impl RequestTrait<GetInventoryManufacturersResponse> for GetInventoryManufacturers { const METHOD: &'static str = "getInventoryManufacturers"; }
+impl RequestTrait<GetInventoryManufacturersResponse> for GetInventoryManufacturers {
+    const METHOD: &'static str = "getInventoryManufacturers";
+}

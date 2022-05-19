@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
-use serde::de::IgnoredAny;
 use crate::common::RequestTrait;
+use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to change order status.
 #[derive(Serialize, Deserialize)]
@@ -10,4 +10,6 @@ pub struct SetOrderStatus {
     pub status_id: i64,
 }
 
-impl RequestTrait<IgnoredAny> for SetOrderStatus { const METHOD: &'static str = "setOrderStatus"; }
+impl RequestTrait<IgnoredAny> for SetOrderStatus {
+    const METHOD: &'static str = "setOrderStatus";
+}

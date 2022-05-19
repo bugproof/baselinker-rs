@@ -1,7 +1,7 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct AmazonFulfillmentShipment {
@@ -26,7 +26,9 @@ pub struct GetOrderTransactionDetailsResponse {
 
 #[derive(Serialize, Deserialize)]
 pub struct GetOrderTransactionDetails {
-    pub order_id: i64
+    pub order_id: i64,
 }
 
-impl RequestTrait<GetOrderTransactionDetailsResponse> for GetOrderTransactionDetails { const METHOD: &'static str = "getOrderTransactionDetails"; }
+impl RequestTrait<GetOrderTransactionDetailsResponse> for GetOrderTransactionDetails {
+    const METHOD: &'static str = "getOrderTransactionDetails";
+}

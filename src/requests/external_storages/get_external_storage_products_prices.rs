@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Product {
@@ -26,4 +26,6 @@ pub struct GetExternalStorageProductsPrices {
     pub page: Option<i64>,
 }
 
-impl RequestTrait<GetExternalStorageProductsPricesResponse> for GetExternalStorageProductsPrices { const METHOD: &'static str = "getExternalStorageProductsPrices"; }
+impl RequestTrait<GetExternalStorageProductsPricesResponse> for GetExternalStorageProductsPrices {
+    const METHOD: &'static str = "getExternalStorageProductsPrices";
+}

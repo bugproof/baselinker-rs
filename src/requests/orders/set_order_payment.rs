@@ -1,8 +1,8 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use serde::de::IgnoredAny;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to add a payment to the order.
 #[derive(Serialize, Deserialize)]
@@ -20,4 +20,6 @@ pub struct SetOrderPayment {
     pub external_payment_id: Option<String>,
 }
 
-impl RequestTrait<IgnoredAny> for SetOrderPayment { const METHOD: &'static str = "setOrderPayment"; }
+impl RequestTrait<IgnoredAny> for SetOrderPayment {
+    const METHOD: &'static str = "setOrderPayment";
+}

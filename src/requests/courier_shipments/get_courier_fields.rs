@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -62,4 +62,6 @@ pub struct GetCourierFields {
     pub courier_code: String,
 }
 
-impl RequestTrait<GetCourierFieldsResponse> for GetCourierFields { const METHOD: &'static str = "getCourierFields"; }
+impl RequestTrait<GetCourierFieldsResponse> for GetCourierFields {
+    const METHOD: &'static str = "getCourierFields";
+}

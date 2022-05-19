@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Category {
@@ -21,4 +21,6 @@ pub struct GetExternalStorageCategories {
     pub storage_id: String,
 }
 
-impl RequestTrait<GetExternalStorageCategoriesResponse> for GetExternalStorageCategories { const METHOD: &'static str = "getExternalStorageCategories"; }
+impl RequestTrait<GetExternalStorageCategoriesResponse> for GetExternalStorageCategories {
+    const METHOD: &'static str = "getExternalStorageCategories";
+}

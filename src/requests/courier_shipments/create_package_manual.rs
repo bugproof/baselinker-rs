@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
-use serde::{Deserialize, Serialize};
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to enter the shipping number and the name of the courier to the order (function used only to add shipments created outside BaseLinker)
 #[derive(Serialize, Deserialize)]
@@ -25,4 +25,6 @@ pub struct CreatePackageManualResponse {
     pub package_number: String,
 }
 
-impl RequestTrait<CreatePackageManualResponse> for CreatePackageManual { const METHOD: &'static str = "createPackageManual"; }
+impl RequestTrait<CreatePackageManualResponse> for CreatePackageManual {
+    const METHOD: &'static str = "createPackageManual";
+}

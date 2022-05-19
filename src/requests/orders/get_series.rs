@@ -1,7 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
-use chrono::serde::ts_seconds;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct SeriesNumberingInfo {
@@ -20,4 +18,6 @@ pub struct GetSeriesResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetSeries {}
 
-impl RequestTrait<GetSeriesResponse> for GetSeries { const METHOD: &'static str = "getSeries"; }
+impl RequestTrait<GetSeriesResponse> for GetSeries {
+    const METHOD: &'static str = "getSeries";
+}

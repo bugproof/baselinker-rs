@@ -1,8 +1,8 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct AddOrderResponse {
@@ -69,4 +69,6 @@ pub struct AddOrder {
     pub products: Vec<Product>,
 }
 
-impl RequestTrait<AddOrderResponse> for AddOrder { const METHOD: &'static str = "addOrder"; }
+impl RequestTrait<AddOrderResponse> for AddOrder {
+    const METHOD: &'static str = "addOrder";
+}

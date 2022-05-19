@@ -48,4 +48,6 @@ pub struct CreatePackageResponse {
     pub courier_inner_number: String,
 }
 
-impl RequestTrait<CreatePackageResponse> for CreatePackage { const METHOD: &'static str = "createPackage"; }
+impl RequestTrait<CreatePackageResponse> for CreatePackage {
+    const METHOD: &'static str = "createPackage";
+}

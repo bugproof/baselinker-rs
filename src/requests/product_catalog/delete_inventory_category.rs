@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove categories from BaseLinker warehouse.
 ///
@@ -13,4 +13,6 @@ pub struct DeleteInventoryCategory {
     pub category_id: i64,
 }
 
-impl RequestTrait<IgnoredAny> for DeleteInventoryCategory { const METHOD: &'static str = "deleteInventoryCategory"; }
+impl RequestTrait<IgnoredAny> for DeleteInventoryCategory {
+    const METHOD: &'static str = "deleteInventoryCategory";
+}

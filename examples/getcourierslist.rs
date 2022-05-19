@@ -12,15 +12,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             for courier in response.couriers {
                 println!("Courier: {} {}", courier.code, courier.name);
             }
-        },
-        Err(err) => {
-            match err {
-                Error::BaseLinkerError(baselinker_error) => {
-                    println!("Error! {} {}", baselinker_error.code, baselinker_error.message);
-                }
-                Error::NetworkError(_) => {}
-            }
         }
+        Err(err) => match err {
+            Error::BaseLinkerError(baselinker_error) => {
+                println!(
+                    "Error! {} {}",
+                    baselinker_error.code, baselinker_error.message
+                );
+            }
+            Error::NetworkError(_) => {}
+        },
     }
 
     Ok(())

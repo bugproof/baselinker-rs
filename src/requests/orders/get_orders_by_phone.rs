@@ -1,7 +1,7 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Order {
@@ -25,4 +25,6 @@ pub struct GetOrdersByPhone {
     pub phone: String,
 }
 
-impl RequestTrait<GetOrdersByPhoneResponse> for GetOrdersByPhone { const METHOD: &'static str = "getOrdersByPhone"; }
+impl RequestTrait<GetOrdersByPhoneResponse> for GetOrdersByPhone {
+    const METHOD: &'static str = "getOrdersByPhone";
+}

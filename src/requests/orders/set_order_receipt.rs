@@ -1,8 +1,8 @@
-use serde::{Serialize, Deserialize};
-use serde::de::IgnoredAny;
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to mark orders with a receipt already issued.
 #[derive(Serialize, Deserialize)]
@@ -14,4 +14,6 @@ pub struct SetOrderReceipt {
     pub printer_error: bool,
 }
 
-impl RequestTrait<IgnoredAny> for SetOrderReceipt { const METHOD: &'static str = "setOrderReceipt"; }
+impl RequestTrait<IgnoredAny> for SetOrderReceipt {
+    const METHOD: &'static str = "setOrderReceipt";
+}

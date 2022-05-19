@@ -1,7 +1,7 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
 use chrono::serde::ts_seconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Payment {
@@ -35,4 +35,6 @@ pub struct GetOrderPaymentsHistory {
     pub show_full_history: Option<bool>,
 }
 
-impl RequestTrait<GetOrderPaymentsHistoryResponse> for GetOrderPaymentsHistory { const METHOD: &'static str = "getOrderPaymentsHistory"; }
+impl RequestTrait<GetOrderPaymentsHistoryResponse> for GetOrderPaymentsHistory {
+    const METHOD: &'static str = "getOrderPaymentsHistory";
+}

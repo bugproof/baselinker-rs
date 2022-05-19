@@ -1,6 +1,5 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct AddInventoryWarehouseResponse {
@@ -22,4 +21,6 @@ pub struct AddInventoryWarehouse {
     pub stock_edition: bool,
 }
 
-impl RequestTrait<AddInventoryWarehouseResponse> for AddInventoryWarehouse { const METHOD: &'static str = "addInventoryWarehouse"; }
+impl RequestTrait<AddInventoryWarehouseResponse> for AddInventoryWarehouse {
+    const METHOD: &'static str = "addInventoryWarehouse";
+}

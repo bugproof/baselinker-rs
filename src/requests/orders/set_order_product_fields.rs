@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to edit the data of selected items (e.g. prices, quantities etc.) of a specific order.
 ///
@@ -26,4 +26,6 @@ pub struct SetOrderProductFields {
     pub weight: f64,
 }
 
-impl RequestTrait<IgnoredAny> for SetOrderProductFields { const METHOD: &'static str = "setOrderProductFields"; }
+impl RequestTrait<IgnoredAny> for SetOrderProductFields {
+    const METHOD: &'static str = "setOrderProductFields";
+}

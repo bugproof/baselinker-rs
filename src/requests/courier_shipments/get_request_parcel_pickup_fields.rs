@@ -1,6 +1,6 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
 pub struct RequestParcelPickupField {
@@ -35,4 +35,6 @@ pub struct GetRequestParcelPickupFields {
     pub courier_code: String,
 }
 
-impl RequestTrait<GetRequestParcelPickupFieldsResponse> for GetRequestParcelPickupFields { const METHOD: &'static str = "getRequestParcelPickupFields"; }
+impl RequestTrait<GetRequestParcelPickupFieldsResponse> for GetRequestParcelPickupFields {
+    const METHOD: &'static str = "getRequestParcelPickupFields";
+}

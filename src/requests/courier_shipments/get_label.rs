@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct GetLabelResponse {
@@ -20,4 +20,6 @@ pub struct GetLabel {
     pub package_number: Option<i64>,
 }
 
-impl RequestTrait<GetLabelResponse> for GetLabel { const METHOD: &'static str = "getLabel"; }
+impl RequestTrait<GetLabelResponse> for GetLabel {
+    const METHOD: &'static str = "getLabel";
+}

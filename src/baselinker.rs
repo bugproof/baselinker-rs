@@ -1,6 +1,6 @@
-use crate::common::{RequestTrait, BaseLinkerError, Error};
+use crate::common::{BaseLinkerError, Error, RequestTrait};
 use serde::de::DeserializeOwned;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::result::Result::Err;
 
@@ -19,15 +19,13 @@ pub struct BaseLinkerClient {
 
 impl BaseLinkerClient {
     pub fn new(token: String, http_client: reqwest::Client) -> Self {
-        Self {
-            token,
-            http_client
-        }
+        Self { token, http_client }
     }
 
     pub async fn send<Request, Response>(&self, request: &Request) -> Result<Response, Error>
-        where Request: RequestTrait<Response> + Serialize,
-              Response: DeserializeOwned
+    where
+        Request: RequestTrait<Response> + Serialize,
+        Response: DeserializeOwned,
     {
         let parameters = serde_json::to_string(request).unwrap();
 
@@ -35,10 +33,13 @@ impl BaseLinkerClient {
         params.insert("method", Request::METHOD);
         params.insert("parameters", parameters.as_str());
 
-        let response = self.http_client.post("https://api.baselinker.com/connector.php")
+        let response = self
+            .http_client
+            .post("https://api.baselinker.com/connector.php")
             .header("X-BLToken", self.token.as_str())
             .form(&params)
-            .send().await?;
+            .send()
+            .await?;
 
         let text = response.text().await.unwrap();
 

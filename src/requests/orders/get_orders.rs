@@ -1,10 +1,10 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
-use chrono::{DateTime, Utc};
-use chrono::serde::ts_seconds;
-use chrono::serde::ts_seconds_option;
 use crate::serialization::inconsistent_bool;
 use crate::serialization::inconsistent_bool_option;
+use chrono::serde::ts_seconds;
+use chrono::serde::ts_seconds_option;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Order {
@@ -97,7 +97,9 @@ pub struct GetOrders {
     #[serde(deserialize_with = "inconsistent_bool_option")]
     pub get_unconfirmed_orders: Option<bool>,
     pub status_id: Option<i64>,
-    pub filter_email: Option<String>
+    pub filter_email: Option<String>,
 }
 
-impl RequestTrait<GetOrdersResponse> for GetOrders { const METHOD: &'static str = "getOrders"; }
+impl RequestTrait<GetOrdersResponse> for GetOrders {
+    const METHOD: &'static str = "getOrders";
+}

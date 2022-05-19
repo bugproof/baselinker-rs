@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 pub trait RequestTrait<T> {
     const METHOD: &'static str;
@@ -19,5 +19,5 @@ pub enum Error {
     BaseLinkerError(BaseLinkerError),
 
     #[error("Network error `{0}`")]
-    NetworkError(#[from] reqwest::Error)
+    NetworkError(#[from] reqwest::Error),
 }

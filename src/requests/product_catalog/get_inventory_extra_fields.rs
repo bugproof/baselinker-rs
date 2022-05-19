@@ -1,6 +1,5 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct InventoryExtraField {
@@ -19,4 +18,6 @@ pub struct GetInventoryExtraFieldsResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetInventoryExtraFields {}
 
-impl RequestTrait<GetInventoryExtraFieldsResponse> for GetInventoryExtraFields { const METHOD: &'static str = "getInventoryExtraFields"; }
+impl RequestTrait<GetInventoryExtraFieldsResponse> for GetInventoryExtraFields {
+    const METHOD: &'static str = "getInventoryExtraFields";
+}

@@ -4,26 +4,26 @@ pub mod requests {
     pub mod courier_shipments {
         pub mod create_package;
         pub mod create_package_manual;
-        pub mod get_couriers_list;
-        pub mod get_courier_fields;
-        pub mod get_courier_services;
+        pub mod delete_courier_package;
         pub mod get_courier_accounts;
+        pub mod get_courier_fields;
+        pub mod get_courier_packages_status_history;
+        pub mod get_courier_services;
+        pub mod get_couriers_list;
         pub mod get_label;
         pub mod get_order_packages;
-        pub mod get_courier_packages_status_history;
-        pub mod delete_courier_package;
         pub mod get_protocol;
         pub mod get_request_parcel_pickup_fields;
         pub mod request_parcel_pickup;
     }
 
     pub mod external_storages {
-        pub mod get_external_storages_list;
         pub mod get_external_storage_categories;
         pub mod get_external_storage_products_data;
         pub mod get_external_storage_products_list;
-        pub mod get_external_storage_products_quantity;
         pub mod get_external_storage_products_prices;
+        pub mod get_external_storage_products_quantity;
+        pub mod get_external_storages_list;
         pub mod update_external_storage_products_quantity;
     }
 
@@ -83,5 +83,5 @@ pub mod requests {
     }
 }
 
-pub mod common;
 pub mod baselinker;
+pub mod common;

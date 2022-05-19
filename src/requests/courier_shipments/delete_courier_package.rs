@@ -1,7 +1,7 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool_option;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to delete a previously created shipment. The method removes the shipment from the BaseLinker system and from the courier system if the courier API allows it
 #[derive(Serialize, Deserialize)]
@@ -17,4 +17,6 @@ pub struct DeleteCourierPackage {
     pub force_delete: Option<bool>,
 }
 
-impl RequestTrait<IgnoredAny> for DeleteCourierPackage { const METHOD: &'static str = "deleteCourierPackage"; }
+impl RequestTrait<IgnoredAny> for DeleteCourierPackage {
+    const METHOD: &'static str = "deleteCourierPackage";
+}

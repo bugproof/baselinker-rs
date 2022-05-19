@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
+use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove the warehouse available in BaseLinker catalogues.
 ///
@@ -11,4 +11,6 @@ pub struct DeleteInventoryWarehouse {
     pub warehouse_id: i64,
 }
 
-impl RequestTrait<IgnoredAny> for DeleteInventoryWarehouse { const METHOD: &'static str = "deleteInventoryWarehouse"; }
+impl RequestTrait<IgnoredAny> for DeleteInventoryWarehouse {
+    const METHOD: &'static str = "deleteInventoryWarehouse";
+}

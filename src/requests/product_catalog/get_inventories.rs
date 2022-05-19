@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Inventory {
@@ -27,4 +27,6 @@ pub struct GetInventoriesResponse {
 #[derive(Serialize, Deserialize)]
 pub struct GetInventories {}
 
-impl RequestTrait<GetInventoriesResponse> for GetInventories { const METHOD: &'static str = "getInventories"; }
+impl RequestTrait<GetInventoriesResponse> for GetInventories {
+    const METHOD: &'static str = "getInventories";
+}

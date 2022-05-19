@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
@@ -21,4 +21,6 @@ pub struct GetCourierPackagesStatusHistory {
     pub package_ids: Vec<i64>,
 }
 
-impl RequestTrait<GetCourierPackagesStatusHistoryResponse> for GetCourierPackagesStatusHistory { const METHOD: &'static str = "getCourierPackagesStatusHistory"; }
+impl RequestTrait<GetCourierPackagesStatusHistoryResponse> for GetCourierPackagesStatusHistory {
+    const METHOD: &'static str = "getCourierPackagesStatusHistory";
+}

@@ -1,6 +1,6 @@
-use std::collections::HashMap;
-use serde::{Serialize, Deserialize};
 use crate::common::RequestTrait;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
 pub struct GetInventoryAvailableTextFieldKeysResponse {
@@ -12,4 +12,8 @@ pub struct GetInventoryAvailableTextFieldKeys {
     pub inventory_id: i64,
 }
 
-impl RequestTrait<GetInventoryAvailableTextFieldKeysResponse> for GetInventoryAvailableTextFieldKeys { const METHOD: &'static str = "getInventoryAvailableTextFieldKeys"; }
+impl RequestTrait<GetInventoryAvailableTextFieldKeysResponse>
+    for GetInventoryAvailableTextFieldKeys
+{
+    const METHOD: &'static str = "getInventoryAvailableTextFieldKeys";
+}
