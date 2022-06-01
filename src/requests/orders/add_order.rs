@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
 use chrono::serde::ts_seconds;
@@ -64,8 +65,7 @@ pub struct AddOrder {
     pub invoice_country_code: String,
     #[serde(deserialize_with = "inconsistent_bool")]
     pub want_invoice: bool,
-    pub extra_field_1: String,
-    pub extra_field_2: String,
+    pub custom_extra_fields: HashMap<String, serde_json::Value>,
     pub products: Vec<Product>,
 }
 

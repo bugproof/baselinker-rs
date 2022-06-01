@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
@@ -35,8 +36,7 @@ pub struct SetOrderFields {
     pub invoice_city: Option<String>,
     pub invoice_country_code: Option<String>,
     pub want_invoice: Option<bool>,
-    pub extra_field_1: Option<String>,
-    pub extra_field_2: Option<String>,
+    pub custom_extra_fields: HashMap<String, serde_json::Value>,
     pub pick_state: Option<i64>,
     pub pack_state: Option<i64>,
 }

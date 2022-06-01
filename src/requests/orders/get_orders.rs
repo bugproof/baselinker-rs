@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
 use crate::serialization::inconsistent_bool_option;
@@ -54,8 +55,7 @@ pub struct Order {
     pub invoice_country: String,
     #[serde(deserialize_with = "inconsistent_bool")]
     pub want_invoice: bool,
-    pub extra_field_1: String,
-    pub extra_field_2: String,
+    pub custom_extra_fields: HashMap<String, serde_json::Value>,
     pub order_page: String,
     pub pick_status: String,
     pub pack_status: String,
