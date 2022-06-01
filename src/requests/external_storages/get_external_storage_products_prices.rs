@@ -4,14 +4,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: String,
-    pub price: f64,
+    pub price: serde_json::Number,
     pub variants: Vec<Variant>,
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Variant {
     pub variant_id: String,
-    pub price: f64,
+    pub price: serde_json::Number,
 }
 
 #[derive(Serialize, Deserialize)]

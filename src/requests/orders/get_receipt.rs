@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub struct ReceiptItem {
     pub name: String,
-    pub price_brutto: f64,
-    pub tax_rate: f64,
+    pub price_brutto: serde_json::Number,
+    pub tax_rate: serde_json::Number,
     pub quantity: i64,
     pub sku: String,
     pub ean: String,
@@ -27,10 +27,10 @@ pub struct GetReceiptResponse {
     pub payment_method: String,
     pub nip: String,
     pub currency: String,
-    pub total_price_brutto: f64,
+    pub total_price_brutto: serde_json::Number,
     pub external_receipt_number: String,
     pub exchange_currency: String,
-    pub exchange_rate: f64,
+    pub exchange_rate: serde_json::Number,
     pub exchange_date: String,
     pub exchange_info: String,
     pub items: Vec<ReceiptItem>,

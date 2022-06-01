@@ -15,10 +15,10 @@ pub struct Variant {
 #[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: i64,
-    pub price_wholesale_netto: f64,
-    pub price_netto: f64,
-    pub price_brutto: Option<String>,
-    pub tax_rate: f64,
+    pub price_wholesale_netto: serde_json::Number,
+    pub price_netto: serde_json::Number,
+    pub price_brutto: serde_json::Number,
+    pub tax_rate: serde_json::Number,
     pub name: String,
     pub quantity: i64,
     pub category_id: String,

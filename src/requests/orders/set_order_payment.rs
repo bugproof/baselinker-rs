@@ -13,7 +13,7 @@ pub struct SetOrderPayment {
     /// The value changes the current payment in the order (not added to the previous value).
     ///
     /// If the amount matches the order value, the order will be marked as paid.
-    pub payment_done: f64,
+    pub payment_done: serde_json::Number,
     #[serde(with = "ts_seconds")]
     pub payment_date: DateTime<Utc>,
     pub payment_comment: String,

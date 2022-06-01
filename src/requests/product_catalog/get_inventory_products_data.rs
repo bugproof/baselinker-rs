@@ -7,7 +7,7 @@ use std::collections::HashMap;
 pub struct DetailedProductData {
     pub ean: String,
     pub sku: String,
-    pub tax_rate: f64,
+    pub tax_rate: serde_json::Number,
     pub weight: f64,
     pub height: f64,
     pub width: f64,
@@ -15,7 +15,7 @@ pub struct DetailedProductData {
     pub star: i64,
     pub category_id: i64,
     pub manufacturer_id: i64,
-    pub prices: HashMap<i64, f64>,
+    pub prices: HashMap<i64, serde_json::Number>,
     pub stock: HashMap<String, i64>,
     pub locations: HashMap<String, String>,
     pub text_fields: HashMap<String, String>,

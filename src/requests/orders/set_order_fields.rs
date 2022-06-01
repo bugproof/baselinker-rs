@@ -17,7 +17,7 @@ pub struct SetOrderFields {
     pub phone: Option<String>,
     pub user_login: Option<String>,
     pub delivery_method: Option<String>,
-    pub delivery_price: Option<f64>,
+    pub delivery_price: Option<serde_json::Number>,
     pub delivery_fullname: Option<String>,
     pub delivery_company: Option<String>,
     pub delivery_address: Option<String>,

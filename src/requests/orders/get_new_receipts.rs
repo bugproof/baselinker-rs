@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub struct ReceiptOrderProduct {
     pub name: String,
-    pub price_brutto: f64,
-    pub tax_rate: f64,
+    pub price_brutto: serde_json::Number,
+    pub tax_rate: serde_json::Number,
     pub quantity: i64,
     pub sku: String,
     pub ean: String,

@@ -8,7 +8,7 @@ pub struct Product {
     pub sku: String,
     pub name: String,
     pub quantity: i64,
-    pub price_brutto: f64,
+    pub price_brutto: serde_json::Number,
 }
 
 #[derive(Serialize, Deserialize)]

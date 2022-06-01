@@ -6,10 +6,10 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub struct Payment {
     /// total amount paid before the given change
-    pub paid_before: f64,
+    pub paid_before: serde_json::Number,
     /// total amount paid after the change
-    pub paid_after: f64,
-    pub total_price: f64,
+    pub paid_after: serde_json::Number,
+    pub total_price: serde_json::Number,
     pub currency: String,
     /// external payment identifier
     pub external_payment_id: String,

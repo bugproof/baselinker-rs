@@ -9,9 +9,9 @@ pub struct InvoiceItem {
     pub name: String,
     pub sku: String,
     pub ean: String,
-    pub price_brutto: f64,
-    pub price_netto: f64,
-    pub tax_rate: f64,
+    pub price_brutto: serde_json::Number,
+    pub price_netto: serde_json::Number,
+    pub tax_rate: serde_json::Number,
     pub quantity: i64,
 }
 
@@ -34,7 +34,7 @@ pub struct Invoice {
     #[serde(with = "ts_seconds")]
     pub date_pay_to: DateTime<Utc>,
     pub currency: String,
-    pub total_price_brutto: f64,
+    pub total_price_brutto: serde_json::Number,
     pub payment: String,
     pub additional_info: String,
     pub invoice_fullname: String,
@@ -53,7 +53,7 @@ pub struct Invoice {
     pub correcting_data: Option<bool>,
     pub external_invoice_number: String,
     pub exchange_currency: Option<String>,
-    pub exchange_rate: Option<f64>,
+    pub exchange_rate: Option<serde_json::Number>,
     pub exchange_date: String, // unknown date format
     pub exchange_info: String,
     pub external_id: i64,

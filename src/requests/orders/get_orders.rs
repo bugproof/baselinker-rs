@@ -76,8 +76,8 @@ pub struct Product {
     pub location: String,
     pub warehouse_id: i64,
     pub auction_id: String,
-    pub price_brutto: f64,
-    pub tax_rate: f64,
+    pub price_brutto: serde_json::Number,
+    pub tax_rate: serde_json::Number,
     pub quantity: i64,
     pub weight: i64,
 }

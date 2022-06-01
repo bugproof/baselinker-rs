@@ -39,9 +39,9 @@ pub struct AddOrderProduct {
     /// The detailed product attributes, e.g. "Colour: blue" (Variant name)
     pub attributes: String,
     /// Single item gross price
-    pub price_brutto: f64,
+    pub price_brutto: serde_json::Number,
     /// VAT rate
-    pub tax_rate: f64,
+    pub tax_rate: serde_json::Number,
     /// Number of pieces
     pub quantity: i64,
     /// Single piece weight

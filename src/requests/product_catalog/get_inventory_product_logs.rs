@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub enum StockOrPrice {
     Stock(i64),
-    Price(f64),
+    Price(serde_json::Number),
 }
 
 #[derive(Serialize, Deserialize)]
