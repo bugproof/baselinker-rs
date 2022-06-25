@@ -2,6 +2,7 @@ use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 // TODO: verify this
@@ -9,7 +10,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub enum StockOrPrice {
     Stock(i64),
-    Price(serde_json::Number),
+    Price(Decimal),
 }
 
 #[derive(Serialize, Deserialize)]

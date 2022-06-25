@@ -1,11 +1,12 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use rust_decimal::Decimal;
 
 #[derive(Serialize, Deserialize)]
 pub struct ProductPriceData {
-    pub prices: HashMap<i64, serde_json::Number>,
-    pub variants: HashMap<String, serde_json::Value>,
+    pub prices: HashMap<i64, Decimal>,
+    pub variants: HashMap<String, Decimal>,
 }
 
 #[derive(Serialize, Deserialize)]

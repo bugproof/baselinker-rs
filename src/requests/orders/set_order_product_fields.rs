@@ -1,3 +1,4 @@
+use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
@@ -20,8 +21,8 @@ pub struct SetOrderProductFields {
     pub location: String,
     pub warehouse_id: i64,
     pub attributes: String,
-    pub price_brutto: serde_json::Number,
-    pub tax_rate: serde_json::Number,
+    pub price_brutto: Decimal,
+    pub tax_rate: Decimal,
     pub quantity: i64,
     pub weight: f64,
 }

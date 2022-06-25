@@ -2,12 +2,13 @@ use crate::common::RequestTrait;
 use crate::requests::product_catalog::add_inventory_product::ProductLink;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use rust_decimal::Decimal;
 
 #[derive(Serialize, Deserialize)]
 pub struct DetailedProductData {
     pub ean: String,
     pub sku: String,
-    pub tax_rate: serde_json::Number,
+    pub tax_rate: Decimal,
     pub weight: f64,
     pub height: f64,
     pub width: f64,
@@ -15,7 +16,7 @@ pub struct DetailedProductData {
     pub star: i64,
     pub category_id: i64,
     pub manufacturer_id: i64,
-    pub prices: HashMap<i64, serde_json::Number>,
+    pub prices: HashMap<i64, Decimal>,
     pub stock: HashMap<String, i64>,
     pub locations: HashMap<String, String>,
     pub text_fields: HashMap<String, String>,

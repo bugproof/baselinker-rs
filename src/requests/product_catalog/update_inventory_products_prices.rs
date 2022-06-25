@@ -1,6 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use rust_decimal::Decimal;
 
 #[derive(Serialize, Deserialize)]
 pub struct UpdateInventoryProductsPricesResponse {
@@ -11,7 +12,7 @@ pub struct UpdateInventoryProductsPricesResponse {
 #[derive(Serialize, Deserialize)]
 pub struct UpdateInventoryProductsPrices {
     pub inventory_id: i64,
-    pub products: HashMap<String, serde_json::Number>
+    pub products: HashMap<String, Decimal>
 }
 
 impl RequestTrait<UpdateInventoryProductsPricesResponse> for UpdateInventoryProductsPrices {

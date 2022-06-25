@@ -1,15 +1,16 @@
 use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Payment {
     /// total amount paid before the given change
-    pub paid_before: serde_json::Number,
+    pub paid_before: Decimal,
     /// total amount paid after the change
-    pub paid_after: serde_json::Number,
-    pub total_price: serde_json::Number,
+    pub paid_after: Decimal,
+    pub total_price: Decimal,
     pub currency: String,
     /// external payment identifier
     pub external_payment_id: String,

@@ -1,3 +1,4 @@
+use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
@@ -39,9 +40,9 @@ pub struct AddOrderProduct {
     /// The detailed product attributes, e.g. "Colour: blue" (Variant name)
     pub attributes: String,
     /// Single item gross price
-    pub price_brutto: serde_json::Number,
+    pub price_brutto: Decimal,
     /// VAT rate
-    pub tax_rate: serde_json::Number,
+    pub tax_rate: Decimal,
     /// Number of pieces
     pub quantity: i64,
     /// Single piece weight

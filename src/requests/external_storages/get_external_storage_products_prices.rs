@@ -1,17 +1,18 @@
+use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: String,
-    pub price: serde_json::Number,
+    pub price: Decimal,
     pub variants: Vec<Variant>,
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Variant {
     pub variant_id: String,
-    pub price: serde_json::Number,
+    pub price: Decimal,
 }
 
 #[derive(Serialize, Deserialize)]

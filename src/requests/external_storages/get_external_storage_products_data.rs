@@ -1,12 +1,13 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use rust_decimal::Decimal;
 
 #[derive(Serialize, Deserialize)]
 pub struct Variant {
     pub variant_id: String,
     pub name: String,
-    pub price: String,
+    pub price: Decimal,
     pub quantity: String,
     pub sku: String,
     pub ean: String,
@@ -15,10 +16,10 @@ pub struct Variant {
 #[derive(Serialize, Deserialize)]
 pub struct Product {
     pub product_id: i64,
-    pub price_wholesale_netto: serde_json::Number,
-    pub price_netto: serde_json::Number,
-    pub price_brutto: serde_json::Number,
-    pub tax_rate: serde_json::Number,
+    pub price_wholesale_netto: Decimal,
+    pub price_netto: Decimal,
+    pub price_brutto: Decimal,
+    pub tax_rate: Decimal,
     pub name: String,
     pub quantity: i64,
     pub category_id: String,

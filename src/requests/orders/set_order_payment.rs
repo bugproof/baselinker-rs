@@ -1,6 +1,7 @@
 use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
@@ -13,7 +14,7 @@ pub struct SetOrderPayment {
     /// The value changes the current payment in the order (not added to the previous value).
     ///
     /// If the amount matches the order value, the order will be marked as paid.
-    pub payment_done: serde_json::Number,
+    pub payment_done: Decimal,
     #[serde(with = "ts_seconds")]
     pub payment_date: DateTime<Utc>,
     pub payment_comment: String,

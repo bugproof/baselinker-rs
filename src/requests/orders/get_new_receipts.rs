@@ -1,13 +1,14 @@
 use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct ReceiptOrderProduct {
     pub name: String,
-    pub price_brutto: serde_json::Number,
-    pub tax_rate: serde_json::Number,
+    pub price_brutto: Decimal,
+    pub tax_rate: Decimal,
     pub quantity: i64,
     pub sku: String,
     pub ean: String,

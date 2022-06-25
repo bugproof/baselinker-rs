@@ -5,6 +5,7 @@ use crate::serialization::inconsistent_bool_option;
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -32,7 +33,7 @@ pub struct Order {
     pub payment_method_cod: String,
     pub payment_done: String,
     pub delivery_method: String,
-    pub delivery_price: String,
+    pub delivery_price: Decimal,
     pub delivery_package_module: String,
     pub delivery_package_nr: String,
     pub delivery_fullname: String,
@@ -76,8 +77,8 @@ pub struct Product {
     pub location: String,
     pub warehouse_id: i64,
     pub auction_id: String,
-    pub price_brutto: serde_json::Number,
-    pub tax_rate: serde_json::Number,
+    pub price_brutto: Decimal,
+    pub tax_rate: Decimal,
     pub quantity: i64,
     pub weight: i64,
 }

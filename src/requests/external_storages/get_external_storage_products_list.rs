@@ -1,3 +1,4 @@
+use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
@@ -8,7 +9,7 @@ pub struct Product {
     pub sku: String,
     pub name: String,
     pub quantity: i64,
-    pub price_brutto: serde_json::Number,
+    pub price_brutto: Decimal,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -26,8 +27,8 @@ pub struct GetExternalStorageProductsList {
     pub filter_ean: Option<String>,
     pub filter_sku: Option<String>,
     pub filter_name: Option<String>,
-    pub filter_price_from: Option<f64>,
-    pub filter_price_to: Option<f64>,
+    pub filter_price_from: Option<Decimal>,
+    pub filter_price_to: Option<Decimal>,
     pub filter_quantity_from: Option<i64>,
     pub filter_quantity_to: Option<i64>,
     pub filter_available: Option<i64>,

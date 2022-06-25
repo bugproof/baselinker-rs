@@ -2,6 +2,7 @@ use crate::common::RequestTrait;
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
 use chrono::{DateTime, Utc};
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -9,9 +10,9 @@ pub struct InvoiceItem {
     pub name: String,
     pub sku: String,
     pub ean: String,
-    pub price_brutto: serde_json::Number,
-    pub price_netto: serde_json::Number,
-    pub tax_rate: serde_json::Number,
+    pub price_brutto: Decimal,
+    pub price_netto: Decimal,
+    pub tax_rate: Decimal,
     pub quantity: i64,
 }
 
@@ -34,7 +35,7 @@ pub struct Invoice {
     #[serde(with = "ts_seconds")]
     pub date_pay_to: DateTime<Utc>,
     pub currency: String,
-    pub total_price_brutto: serde_json::Number,
+    pub total_price_brutto: Decimal,
     pub payment: String,
     pub additional_info: String,
     pub invoice_fullname: String,
@@ -53,7 +54,7 @@ pub struct Invoice {
     pub correcting_data: Option<bool>,
     pub external_invoice_number: String,
     pub exchange_currency: Option<String>,
-    pub exchange_rate: Option<serde_json::Number>,
+    pub exchange_rate: Option<Decimal>,
     pub exchange_date: String, // unknown date format
     pub exchange_info: String,
     pub external_id: i64,
