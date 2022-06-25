@@ -3,6 +3,9 @@ use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::result::Result::Err;
+use std::time::Duration;
+use tower::{Service, ServiceBuilder};
+use tower::limit::RateLimit;
 
 #[derive(Deserialize)]
 struct BaseLinkerResponse {
@@ -13,16 +16,18 @@ struct BaseLinkerResponse {
 }
 
 pub struct BaseLinkerClient {
-    http_client: reqwest::Client,
     token: String,
+    rate_limit: RateLimit<reqwest::Client>
 }
 
 impl BaseLinkerClient {
     pub fn new(token: String, http_client: reqwest::Client) -> Self {
-        Self { token, http_client }
+        Self { token, rate_limit: ServiceBuilder::new()
+            .rate_limit(100, Duration::from_secs(60))
+            .service(http_client) }
     }
 
-    pub async fn send<Request, Response>(&self, request: &Request) -> Result<Response, Error>
+    pub async fn send<Request, Response>(&mut self, request: &Request) -> Result<Response, Error>
     where
         Request: RequestTrait<Response> + Serialize,
         Response: DeserializeOwned,
@@ -33,14 +38,14 @@ impl BaseLinkerClient {
         params.insert("method", Request::METHOD);
         params.insert("parameters", parameters.as_str());
 
-        let response = self
-            .http_client
+        let http_request = self
+            .rate_limit.get_ref()
             .post("https://api.baselinker.com/connector.php")
             .header("X-BLToken", self.token.as_str())
             .form(&params)
-            .send()
-            .await?;
+            .build()?;
 
+        let response = self.rate_limit.call(http_request).await?;
         let text = response.text().await.unwrap();
 
         let api_response = serde_json::from_str::<BaseLinkerResponse>(text.as_str()).unwrap();

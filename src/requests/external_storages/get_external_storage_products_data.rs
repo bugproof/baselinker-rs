@@ -24,7 +24,7 @@ pub struct Product {
     pub category_id: String,
     pub weight: String,
     pub ean: String,
-    pub sku: Option<serde_json::Value>,
+    pub sku: Option<String>,
     pub description: String,
     pub description_extra1: String,
     pub description_extra2: String,
