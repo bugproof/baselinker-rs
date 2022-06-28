@@ -1,6 +1,6 @@
 [package]
 name = "baselinker"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "BaseLinker.com API client"
 license = "MIT OR Apache-2.0"
@@ -19,3 +19,4 @@ rust_decimal = { version = "1.25", features = ["serde-float"] }
 
 [dev-dependencies]
 tokio = { version = "1.8.1", features = ["rt-multi-thread", "macros"] }
+rust_decimal_macros = "1.25"

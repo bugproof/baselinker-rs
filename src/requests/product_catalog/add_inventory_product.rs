@@ -5,7 +5,7 @@ use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryProductResponse {
-    pub product_id: String,
+    pub product_id: i64,
     pub warnings: Option<HashMap<String, String>>,
 }
 
@@ -40,7 +40,7 @@ pub struct AddInventoryProduct {
     pub text_fields: HashMap<String, String>,
     pub images: Vec<String>,
     pub links: HashMap<String, ProductLink>,
-    pub bundle_products: HashMap<String, i64>,
+    pub bundle_products: Option<HashMap<String, i64>>,
 }
 
 impl RequestTrait<AddInventoryProductResponse> for AddInventoryProduct {

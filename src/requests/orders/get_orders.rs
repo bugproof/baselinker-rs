@@ -1,6 +1,5 @@
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
-use crate::serialization::inconsistent_bool_option;
 use chrono::serde::ts_seconds;
 use chrono::serde::ts_seconds_option;
 use chrono::{DateTime, Utc};
