@@ -10,12 +10,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     match api_result {
         Ok(response) => {
             for courier in response.couriers {
-                println!("Courier: {:?}", courier);
+                println!("{:?}", courier);
             }
         }
         Err(err) => match err {
             Error::BaseLinkerError(baselinker_error) => {
-                println!("Error! {:?}", baselinker_error);
+                println!("{:?}", baselinker_error);
             }
             Error::NetworkError(_) => {}
         },
