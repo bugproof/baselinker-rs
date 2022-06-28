@@ -1,4 +1,3 @@
-use std::borrow::Borrow;
 use baselinker::baselinker::BaseLinkerClient;
 use baselinker::common::Error;
 use baselinker::requests::courier_shipments::get_couriers_list::GetCouriersList;

@@ -4,8 +4,8 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::result::Result::Err;
 use std::time::Duration;
-use tower::{Service, ServiceBuilder};
 use tower::limit::RateLimit;
+use tower::{Service, ServiceBuilder};
 
 #[derive(Deserialize, Debug)]
 struct BaseLinkerResponse {
@@ -17,14 +17,17 @@ struct BaseLinkerResponse {
 
 pub struct BaseLinkerClient {
     token: String,
-    rate_limit: RateLimit<reqwest::Client>
+    rate_limit: RateLimit<reqwest::Client>,
 }
 
 impl BaseLinkerClient {
     pub fn new(token: String, http_client: reqwest::Client) -> Self {
-        Self { token, rate_limit: ServiceBuilder::new()
-            .rate_limit(100, Duration::from_secs(60))
-            .service(http_client) }
+        Self {
+            token,
+            rate_limit: ServiceBuilder::new()
+                .rate_limit(100, Duration::from_secs(60))
+                .service(http_client),
+        }
     }
 
     pub async fn send<Request, Response>(&mut self, request: &Request) -> Result<Response, Error>
@@ -39,7 +42,8 @@ impl BaseLinkerClient {
         params.insert("parameters", parameters.as_str());
 
         let http_request = self
-            .rate_limit.get_ref()
+            .rate_limit
+            .get_ref()
             .post("https://api.baselinker.com/connector.php")
             .header("X-BLToken", self.token.as_str())
             .form(&params)

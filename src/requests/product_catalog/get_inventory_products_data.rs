@@ -1,8 +1,8 @@
 use crate::common::RequestTrait;
 use crate::requests::product_catalog::add_inventory_product::ProductLink;
+use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use rust_decimal::Decimal;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DetailedProductData {

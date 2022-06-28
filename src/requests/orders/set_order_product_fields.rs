@@ -1,5 +1,5 @@
-use rust_decimal::Decimal;
 use crate::common::RequestTrait;
+use rust_decimal::Decimal;
 use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 

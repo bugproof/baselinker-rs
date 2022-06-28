@@ -11,7 +11,7 @@ pub struct UpdateInventoryProductsStockResponse {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateInventoryProductsStock {
     pub inventory_id: i64,
-    pub products: HashMap<String, i64>
+    pub products: HashMap<String, i64>,
 }
 
 impl RequestTrait<UpdateInventoryProductsStockResponse> for UpdateInventoryProductsStock {

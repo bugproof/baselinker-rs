@@ -36,11 +36,11 @@ pub mod requests {
         pub mod get_invoices;
         pub mod get_journal_list;
         pub mod get_new_receipts;
+        pub mod get_order_extra_fields;
         pub mod get_order_payments_history;
         pub mod get_order_sources;
         pub mod get_order_status_list;
         pub mod get_order_transaction_details;
-        pub mod get_order_extra_fields;
         pub mod get_orders;
         pub mod get_orders_by_email;
         pub mod get_orders_by_phone;

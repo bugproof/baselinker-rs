@@ -1,10 +1,10 @@
-use std::collections::HashMap;
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
 use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrderResponse {

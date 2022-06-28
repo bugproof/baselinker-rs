@@ -1,8 +1,8 @@
-use std::collections::HashMap;
-use rust_decimal::Decimal;
 use crate::common::RequestTrait;
+use rust_decimal::Decimal;
 use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 /// The method allows you to edit selected fields (e.g. address data, notes, etc.) of a specific order.
 ///
