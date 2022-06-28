@@ -3,6 +3,6 @@
 # BaseLinker.com API client for Rust
 [![crates.io](https://img.shields.io/crates/v/baselinker)](https://crates.io/crates/baselinker)
 
-This library is incomplete. I started it as a direct port of https://github.com/bugproof/BaseLinkerApi
+[Conforms to the update: **2022-06-14**](https://api.baselinker.com/index.php?changelog)
 
-PRs and bug reports are always welcome
+PRs and bug reports are always welcome. Breaking changes are expected.
