@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetProtocolResponse {
     /// Protocol file extension (pdf, html).
     pub extension: String,
@@ -10,7 +10,7 @@ pub struct GetProtocolResponse {
 }
 
 /// The method allows you to download a parcel protocol for selected shipments if the protocol is available for chosen courier
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetProtocol {
     /// Courier code
     pub courier_code: String,

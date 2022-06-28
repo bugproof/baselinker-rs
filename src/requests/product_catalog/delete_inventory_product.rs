@@ -3,7 +3,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove the product from BaseLinker catalog.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteInventoryProduct {
     /// BaseLinker catalogue product identifier
     pub product_id: i64,

@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /// Along with the category, the products contained therein are removed (however, this does not apply to products in subcategories).
 ///
 /// The subcategories will be changed to the highest level categories.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteInventoryCategory {
     /// The number of the category to be removed in the BaseLinker storage.
     pub category_id: i64,

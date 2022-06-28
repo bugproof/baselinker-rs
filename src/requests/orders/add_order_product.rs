@@ -2,14 +2,14 @@ use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrderProductResponse {
     /// Identifier of the item added to the order.
     pub order_product_id: i64,
 }
 
 /// The method allows you to add a new product to your order.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrderProduct {
     /// Order Identifier from BaseLinker order manager
     pub order_id: i64,

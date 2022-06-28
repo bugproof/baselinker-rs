@@ -3,7 +3,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove the price group from BaseLinker storage.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteInventoryPriceGroup {
     /// Price group identifier
     pub price_group_id: i64,

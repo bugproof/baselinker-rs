@@ -4,7 +4,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to delete a previously created shipment. The method removes the shipment from the BaseLinker system and from the courier system if the courier API allows it
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteCourierPackage {
     /// Courier code
     pub courier_code: String,

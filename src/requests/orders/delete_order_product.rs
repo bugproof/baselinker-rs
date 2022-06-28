@@ -3,7 +3,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove a specific product from the order.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteOrderProduct {
     /// Order ID from BaseLinker order manager.
     pub order_id: i64,

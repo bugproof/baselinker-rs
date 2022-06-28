@@ -4,7 +4,7 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ReceiptOrderProduct {
     pub name: String,
     pub price_brutto: Decimal,
@@ -14,7 +14,7 @@ pub struct ReceiptOrderProduct {
     pub ean: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ReceiptOrder {
     pub receipt_id: i64,
     pub series_id: i64,
@@ -27,7 +27,7 @@ pub struct ReceiptOrder {
     pub products: Vec<ReceiptOrderProduct>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetNewReceiptsResponse {
     pub orders: Vec<ReceiptOrder>,
 }
@@ -37,7 +37,7 @@ pub struct GetNewReceiptsResponse {
 /// This method should be used in creating integration with a fiscal printer.
 ///
 /// The method can be requested for new receipts every e.g. 10 seconds. If any receipts appear in response, they should be confirmed by the setOrderReceipt method after printing to disappear from the waiting list.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetNewReceipts {
     /// The numbering series ID allows filtering by the receipt numbering series.
     ///

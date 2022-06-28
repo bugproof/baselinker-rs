@@ -6,7 +6,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to add a payment to the order.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SetOrderPayment {
     pub order_id: i64,
     /// The amount of the payment.

@@ -4,7 +4,7 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ReceiptItem {
     pub name: String,
     pub price_brutto: Decimal,
@@ -14,7 +14,7 @@ pub struct ReceiptItem {
     pub ean: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetReceiptResponse {
     pub receipt_id: i64,
     pub series_id: i64,
@@ -40,7 +40,7 @@ pub struct GetReceiptResponse {
 /// The method allows you to retrieve a single receipt from the BaseLinker order manager.
 ///
 /// To retrieve a list of new receipts (when integrating a fiscal printer), use the getNewReceipts method.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetReceipt {
     // TODO: union/enum?
     /// Receipt ID. Not required if order_id is provided.

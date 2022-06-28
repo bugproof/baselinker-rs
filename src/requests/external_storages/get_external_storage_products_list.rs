@@ -2,7 +2,7 @@ use rust_decimal::Decimal;
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub product_id: String,
     pub ean: String,
@@ -12,13 +12,13 @@ pub struct Product {
     pub price_brutto: Decimal,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsListResponse {
     pub storage_id: String,
     pub products: Vec<Product>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsList {
     pub storage_id: String,
     pub filter_category_id: Option<String>,

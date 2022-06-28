@@ -3,7 +3,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to delete a catalog from BaseLinker storage.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteInventory {
     /// Catalog ID. The list of identifiers can be retrieved using the method getInventories.
     pub inventory_id: i64,

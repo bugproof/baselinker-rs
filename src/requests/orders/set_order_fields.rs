@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /// The method allows you to edit selected fields (e.g. address data, notes, etc.) of a specific order.
 ///
 /// Only the fields that you want to edit should be given, other fields can be omitted in the request.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SetOrderFields {
     pub order_id: i64,
     pub admin_comments: Option<String>,

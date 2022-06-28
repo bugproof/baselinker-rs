@@ -4,7 +4,7 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Payment {
     /// total amount paid before the given change
     pub paid_before: Decimal,
@@ -19,7 +19,7 @@ pub struct Payment {
     pub date: DateTime<Utc>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderPaymentsHistoryResponse {
     pub payments: Vec<Payment>,
 }
@@ -27,7 +27,7 @@ pub struct GetOrderPaymentsHistoryResponse {
 /// The method allows you to retrieve payment history for a selected order, including an external payment identifier from the payment gateway.
 ///
 /// One order can have multiple payment history entries, caused by surcharges, order value changes, manual payment editing
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderPaymentsHistory {
     pub order_id: i64,
     /// (false by default) Download full payment history, including order value change entries, manual order payment edits.

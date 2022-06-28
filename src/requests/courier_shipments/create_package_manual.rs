@@ -4,7 +4,7 @@ use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to enter the shipping number and the name of the courier to the order (function used only to add shipments created outside BaseLinker)
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreatePackageManual {
     /// Order identifier
     pub order_id: i64,
@@ -17,7 +17,7 @@ pub struct CreatePackageManual {
     pub pickup_date: DateTime<Utc>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreatePackageManualResponse {
     /// Shipment ID
     pub package_id: i64,

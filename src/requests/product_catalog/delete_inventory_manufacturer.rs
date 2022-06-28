@@ -3,7 +3,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to remove manufacturer from BaseLinker catalog
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteInventoryManufacturer {
     /// The ID of the manufacturer removed from BaseLinker warehouse.
     pub manufacturer_id: i64,

@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct OrderExtraField {
     pub extra_field_id: i64,
     pub name: String,
@@ -9,12 +9,12 @@ pub struct OrderExtraField {
     pub options: Option<Vec<String>>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderExtraFieldsResponse {
     pub extra_fields: Vec<OrderExtraField>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderExtraFields {}
 
 impl RequestTrait<GetOrderExtraFieldsResponse> for GetOrderExtraFields {

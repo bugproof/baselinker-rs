@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use rust_decimal::Decimal;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Variant {
     pub variant_id: String,
     pub name: String,
@@ -13,7 +13,7 @@ pub struct Variant {
     pub ean: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub product_id: i64,
     pub price_wholesale_netto: Decimal,
@@ -35,27 +35,27 @@ pub struct Product {
     pub variants: Option<Vec<Variant>>,
 }
 
-// #[derive(Serialize, Deserialize)]
+// #[derive(Serialize, Deserialize, Debug)]
 // #[serde(untagged)]
 // pub enum PriceNetto {
 //     Double(f64),
 //     String(String),
 // }
 //
-// #[derive(Serialize, Deserialize)]
+// #[derive(Serialize, Deserialize, Debug)]
 // #[serde(untagged)]
 // pub enum PriceWholesaleNetto {
 //     Integer(i64),
 //     String(String),
 // }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsDataResponse {
     pub storage_id: String,
     pub products: HashMap<String, Product>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsData {
     pub storage_id: String,
     pub products: Vec<i64>,

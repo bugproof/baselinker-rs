@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryCategoryResponse {
     /// Number of a category added or updated in BaseLinker storage.
     ///
@@ -14,7 +14,7 @@ pub struct AddInventoryCategoryResponse {
 /// The method allows you to add a category to the BaseLinker catalog.
 ///
 /// Adding a category with the same identifier again, updates the previously saved category
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryCategory {
     /// Catalog ID. The list of identifiers can be retrieved by the getInventories method (inventory_id field).
     ///

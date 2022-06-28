@@ -3,7 +3,7 @@ use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Order {
     pub order_id: String,
     pub order_status_id: String,
@@ -15,12 +15,12 @@ pub struct Order {
     pub delivery_company: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrdersByPhoneResponse {
     pub orders: Vec<Order>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrdersByPhone {
     pub phone: String,
 }

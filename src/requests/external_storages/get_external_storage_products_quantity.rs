@@ -1,27 +1,27 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub product_id: String,
     pub quantity: i64,
     pub variants: Vec<Variant>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Variant {
     pub variant_id: String,
     pub quantity: i64,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsQuantityResponse {
     pub storage_id: String,
     pub products: Vec<Product>,
 }
 
 /// The method allows to retrieve stock from an external storage (shop/wholesaler) connected to BaseLinker.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetExternalStorageProductsQuantity {
     pub storage_id: String,
     pub page: Option<i64>,

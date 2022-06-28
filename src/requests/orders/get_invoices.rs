@@ -5,7 +5,7 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct InvoiceItem {
     pub name: String,
     pub sku: String,
@@ -16,7 +16,7 @@ pub struct InvoiceItem {
     pub quantity: i64,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Invoice {
     pub invoice_id: i64,
     pub order_id: i64,
@@ -61,7 +61,7 @@ pub struct Invoice {
     pub items: Vec<InvoiceItem>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInvoicesResponse {
     pub invoices: Vec<Invoice>,
 }
@@ -71,7 +71,7 @@ pub struct GetInvoicesResponse {
 /// The list of invoices can be limited using filters described in the method parameters.
 ///
 /// Maximum 100 invoices are returned at a time.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInvoices {
     /// Invoice identifier. Completing this field will result in downloading information about only one specific invoice.
     pub invoice_id: Option<i64>,

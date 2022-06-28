@@ -1,13 +1,13 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RequestParcelPickupResponse {
     /// The parcel pickup number provided by the courier API
     pub pickup_number: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RequestParcelPickupField {
     /// The field ID
     pub id: String,
@@ -16,7 +16,7 @@ pub struct RequestParcelPickupField {
 }
 
 /// The method allows you to retrieve additional fields for a parcel pickup request.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RequestParcelPickup {
     /// Courier code
     pub courier_code: String,

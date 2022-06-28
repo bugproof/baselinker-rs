@@ -8,7 +8,7 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Order {
     pub order_id: String,
     pub shop_order_id: String,
@@ -63,7 +63,7 @@ pub struct Order {
     pub products: Vec<Product>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub storage: String,
     pub storage_id: i64,
@@ -83,12 +83,12 @@ pub struct Product {
     pub weight: i64,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrdersResponse {
     pub orders: Vec<Order>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrders {
     pub order_id: Option<i64>,
     #[serde(with = "ts_seconds_option")]

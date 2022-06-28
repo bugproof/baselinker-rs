@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use rust_decimal::Decimal;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub id: String,
     pub ean: String,
@@ -13,12 +13,12 @@ pub struct Product {
     pub stock: HashMap<String, i64>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductsListResponse {
     pub products: HashMap<String, Product>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductsList {
     pub inventory_id: i64,
     pub filter_id: Option<i64>,

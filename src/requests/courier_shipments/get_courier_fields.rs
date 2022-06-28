@@ -3,7 +3,7 @@ use crate::serialization::inconsistent_bool;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Field {
     /// The field ID
     pub id: String,
@@ -30,7 +30,7 @@ pub struct Field {
     pub value: Option<serde_json::Value>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct PackageField {
     /// The field ID
     pub id: String,
@@ -44,7 +44,7 @@ pub struct PackageField {
     pub package_field_default: Option<String>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetCourierFieldsResponse {
     /// Does the courier support multiple shipments.
     #[serde(deserialize_with = "inconsistent_bool")]
@@ -56,7 +56,7 @@ pub struct GetCourierFieldsResponse {
 }
 
 /// The method allows you to retrieve the form fields for creating shipments for the selected courier.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetCourierFields {
     /// Courier code
     pub courier_code: String,

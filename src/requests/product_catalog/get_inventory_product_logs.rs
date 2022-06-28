@@ -7,19 +7,19 @@ use serde::{Deserialize, Serialize};
 
 // TODO: verify this
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub enum StockOrPrice {
     Stock(i64),
     Price(Decimal),
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub enum StringOrInt {
     String(String),
     Int(i64),
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ProductLogEvent {
     pub r#type: i64,
     pub from: StockOrPrice,
@@ -27,7 +27,7 @@ pub struct ProductLogEvent {
     pub info: StringOrInt,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ProductLog {
     pub profile: String,
     #[serde(with = "ts_seconds")]
@@ -35,12 +35,12 @@ pub struct ProductLog {
     pub entries: Vec<ProductLogEvent>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductLogsResponse {
     pub logs: Vec<ProductLog>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductLogs {
     pub product_id: i64,
     #[serde(with = "ts_seconds_option")]

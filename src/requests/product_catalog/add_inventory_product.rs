@@ -3,13 +3,13 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use rust_decimal::Decimal;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryProductResponse {
     pub product_id: String,
     pub warnings: Option<HashMap<String, String>>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ProductLink {
     pub product_id: String,
     pub variant_id: Option<String>,
@@ -18,7 +18,7 @@ pub struct ProductLink {
 /// The method allows you to add a new product to BaseLinker catalog.
 ///
 /// Entering the product with the ID updates previously saved product.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryProduct {
     pub inventory_id: String,
     pub product_id: Option<String>,

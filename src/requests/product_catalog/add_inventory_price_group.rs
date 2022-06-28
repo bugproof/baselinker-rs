@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryPriceGroupResponse {
     /// The ID number of added or updated price group.
     pub price_group_id: i64,
@@ -12,7 +12,7 @@ pub struct AddInventoryPriceGroupResponse {
 /// Providing a price group ID will update the existing price group.
 ///
 /// Such price groups may be later assigned in addInventory method.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryPriceGroup {
     /// Price group identifier
     pub price_group_id: Option<i64>,

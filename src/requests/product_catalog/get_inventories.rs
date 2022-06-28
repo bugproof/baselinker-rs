@@ -2,7 +2,7 @@ use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Inventory {
     pub inventory_id: i64,
     pub name: String,
@@ -19,12 +19,12 @@ pub struct Inventory {
     pub is_default: bool,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoriesResponse {
     pub inventories: Vec<Inventory>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventories {}
 
 impl RequestTrait<GetInventoriesResponse> for GetInventories {

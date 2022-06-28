@@ -3,7 +3,7 @@ use crate::requests::courier_shipments::create_package::{Field, Package};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetCourierServicesResponse {
     /// List of available services.
     ///
@@ -22,7 +22,7 @@ pub struct GetCourierServicesResponse {
 /// Not applicable to other couriers whose forms have fixed options.
 ///
 /// The details of the package should be sent with the method (the format as in createPackage) in order to receive a list of additional services
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetCourierServices {
     /// Order identifier
     pub order_id: i64,

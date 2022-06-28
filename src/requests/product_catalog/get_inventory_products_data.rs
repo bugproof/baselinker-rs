@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use rust_decimal::Decimal;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct DetailedProductData {
     pub ean: String,
     pub sku: String,
@@ -25,12 +25,12 @@ pub struct DetailedProductData {
     pub variants: HashMap<String, serde_json::Value>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductsDataResponse {
     pub products: HashMap<String, DetailedProductData>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductsData {
     pub inventory_id: i64,
     pub products: Vec<String>,

@@ -6,12 +6,12 @@ use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrderResponse {
     pub order_id: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Product {
     pub storage: String,
     pub storage_id: i64,
@@ -29,7 +29,7 @@ pub struct Product {
 }
 
 /// The method allows adding a new order to the BaseLinker order manager.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrder {
     pub order_status_id: String,
     pub source_id: Option<i64>,

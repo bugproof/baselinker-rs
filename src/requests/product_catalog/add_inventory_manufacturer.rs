@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryManufacturerResponse {
     /// ID of a created or updated manufacturer
     pub manufacturer_id: i64,
@@ -10,7 +10,7 @@ pub struct AddInventoryManufacturerResponse {
 /// The method allows you to add a manufacturer to the BaseLinker catalog.
 ///
 /// Adding a manufacturer with the same identifier again, updates the previously saved manufacturer
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryManufacturer {
     /// Manufacturer ID provided in case of an update. Should be blank when creating a new manufacturer.
     pub manufacturer_id: Option<i64>,

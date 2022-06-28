@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryWarehouseResponse {
     pub warehouse_id: i64,
 }
@@ -13,7 +13,7 @@ pub struct AddInventoryWarehouseResponse {
 /// The method does not allow editing warehouses created automatically for the purpose of keeping external stocks of shops, wholesalers etc.
 ///
 /// Such warehouse may be later used in addInventory method.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryWarehouse {
     pub warehouse_id: Option<i64>,
     pub name: String,

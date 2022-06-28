@@ -3,7 +3,7 @@ use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AmazonFulfillmentShipment {
     pub product_name: String,
     pub product_sku: String,
@@ -11,7 +11,7 @@ pub struct AmazonFulfillmentShipment {
     pub fba: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderTransactionDetailsResponse {
     pub amazon_fulfillment_shipments: Vec<AmazonFulfillmentShipment>,
     #[serde(with = "ts_seconds")]
@@ -24,7 +24,7 @@ pub struct GetOrderTransactionDetailsResponse {
     pub amazon_delivery_date_to: DateTime<Utc>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderTransactionDetails {
     pub order_id: i64,
 }

@@ -4,7 +4,7 @@ pub trait RequestTrait<T> {
     const METHOD: &'static str;
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct BaseLinkerError {
     #[serde(rename = "error_code")]
     pub code: String,

@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Package {
     pub package_id: String,
     pub courier_package_nr: String,
@@ -13,13 +13,13 @@ pub struct Package {
     pub tracking_status: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderPackagesResponse {
     pub packages: Vec<Package>,
 }
 
 /// The method allows you to download shipments previously created for the selected order.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetOrderPackages {
     pub order_id: String,
 }

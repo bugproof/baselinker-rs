@@ -7,7 +7,7 @@ use std::time::Duration;
 use tower::{Service, ServiceBuilder};
 use tower::limit::RateLimit;
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 struct BaseLinkerResponse {
     pub status: String,
 

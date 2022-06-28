@@ -2,7 +2,7 @@ use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct RequestParcelPickupField {
     /// The field ID
     pub id: String,
@@ -22,14 +22,14 @@ pub struct RequestParcelPickupField {
     pub value: Option<String>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetRequestParcelPickupFieldsResponse {
     /// An array with a list of additional fields to request parcel pickup
     pub fields: Vec<RequestParcelPickupField>,
 }
 
 /// The method allows you to retrieve additional fields for a parcel pickup request.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GetRequestParcelPickupFields {
     /// Courier code
     pub courier_code: String,

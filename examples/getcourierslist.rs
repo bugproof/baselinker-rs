@@ -1,3 +1,4 @@
+use std::borrow::Borrow;
 use baselinker::baselinker::BaseLinkerClient;
 use baselinker::common::Error;
 use baselinker::requests::courier_shipments::get_couriers_list::GetCouriersList;
@@ -10,15 +11,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     match api_result {
         Ok(response) => {
             for courier in response.couriers {
-                println!("Courier: {} {}", courier.code, courier.name);
+                println!("Courier: {:?}", courier);
             }
         }
         Err(err) => match err {
             Error::BaseLinkerError(baselinker_error) => {
-                println!(
-                    "Error! {} {}",
-                    baselinker_error.code, baselinker_error.message
-                );
+                println!("Error! {:?}", baselinker_error);
             }
             Error::NetworkError(_) => {}
         },

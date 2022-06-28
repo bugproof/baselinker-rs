@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Field {
     pub id: String,
     pub value: String,
@@ -9,7 +9,7 @@ pub struct Field {
 
 // TODO: use uom crate?
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Package {
     /// centimeters
     pub length: f64,
@@ -23,7 +23,7 @@ pub struct Package {
 }
 
 /// The method allows you to create a shipment in the system of the selected courier.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreatePackage {
     /// Order identifier
     pub order_id: i64,
@@ -38,7 +38,7 @@ pub struct CreatePackage {
     pub packages: Vec<Package>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct CreatePackageResponse {
     /// Shipment ID
     pub package_id: i64,

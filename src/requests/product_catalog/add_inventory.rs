@@ -1,7 +1,7 @@
 use crate::common::RequestTrait;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryResponse {
     /// Catalog ID. The list of identifiers can be retrieved using the method getInventories.
     pub inventory_id: i64,
@@ -10,7 +10,7 @@ pub struct AddInventoryResponse {
 /// The method allows you to add the BaseLinker catalogs.
 ///
 /// Adding a catalog with the same identifier again will cause updates of the previously saved catalog.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventory {
     /// Catalog ID. The list of identifiers can be retrieved using the method getInventories.
     pub inventory_id: Option<i64>,

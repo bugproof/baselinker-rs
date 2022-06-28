@@ -5,7 +5,7 @@ use serde::de::IgnoredAny;
 use serde::{Deserialize, Serialize};
 
 /// The method allows you to mark orders with a receipt already issued.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SetOrderReceipt {
     pub receipt_id: i64,
     pub receipt_nr: String,
