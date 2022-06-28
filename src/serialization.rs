@@ -1,6 +1,17 @@
-use serde::de;
-use serde::de::Deserializer;
+use serde::{de, Serializer, Deserializer};
 use std::fmt;
+
+pub fn bool_to_string_num<S>(v: &bool, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+{
+    if *v {
+        serializer.serialize_str("1")
+    }
+    else {
+        serializer.serialize_str("0")
+    }
+}
 
 pub fn inconsistent_bool<'de, D>(deserializer: D) -> Result<bool, D::Error>
 where

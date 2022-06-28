@@ -35,7 +35,7 @@ pub struct GetInventoryProductsDataResponse {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetInventoryProductsData {
     pub inventory_id: i64,
-    pub products: Vec<String>,
+    pub products: Vec<i64>,
 }
 
 impl RequestTrait<GetInventoryProductsDataResponse> for GetInventoryProductsData {

@@ -1,5 +1,6 @@
 use crate::common::RequestTrait;
 use crate::serialization::inconsistent_bool;
+use crate::serialization::bool_to_string_num;
 use chrono::serde::ts_seconds;
 use chrono::{DateTime, Utc};
 use rust_decimal::Decimal;
@@ -8,7 +9,7 @@ use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrderResponse {
-    pub order_id: String,
+    pub order_id: i64,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -31,8 +32,8 @@ pub struct Product {
 /// The method allows adding a new order to the BaseLinker order manager.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AddOrder {
-    pub order_status_id: String,
-    pub source_id: Option<i64>,
+    pub order_status_id: i64,
+    pub custom_source_id: Option<i64>,
     #[serde(with = "ts_seconds")]
     pub date_add: DateTime<Utc>,
     pub user_comments: String,
@@ -43,7 +44,8 @@ pub struct AddOrder {
     pub currency: String,
     pub payment_method: String,
     pub payment_method_cod: String,
-    pub paid: String,
+    #[serde(serialize_with = "bool_to_string_num")]
+    pub paid: bool,
     pub delivery_method: String,
     pub delivery_price: Decimal,
     pub delivery_fullname: String,

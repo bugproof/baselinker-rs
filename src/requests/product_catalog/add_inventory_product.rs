@@ -20,10 +20,11 @@ pub struct ProductLink {
 /// Entering the product with the ID updates previously saved product.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AddInventoryProduct {
-    pub inventory_id: String,
+    pub inventory_id: i64,
     pub product_id: Option<String>,
     pub parent_id: Option<String>,
     pub is_bundle: bool,
+    pub bundle_products: Option<HashMap<String, i64>>,
     pub ean: String,
     pub sku: String,
     pub tax_rate: Decimal,
@@ -40,7 +41,6 @@ pub struct AddInventoryProduct {
     pub text_fields: HashMap<String, String>,
     pub images: Vec<String>,
     pub links: HashMap<String, ProductLink>,
-    pub bundle_products: Option<HashMap<String, i64>>,
 }
 
 impl RequestTrait<AddInventoryProductResponse> for AddInventoryProduct {
