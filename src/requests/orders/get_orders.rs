@@ -80,7 +80,8 @@ pub struct Product {
     pub price_brutto: Decimal,
     pub tax_rate: Decimal,
     pub quantity: i64,
-    pub weight: i64,
+    pub weight: f64,
+    pub bundle_id: i64,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -95,10 +96,12 @@ pub struct GetOrders {
     pub date_confirmed_from: Option<DateTime<Utc>>,
     #[serde(with = "ts_seconds_option")]
     pub date_from: Option<DateTime<Utc>>,
-    #[serde(deserialize_with = "inconsistent_bool_option")]
+    pub include_custom_extra_fields: Option<bool>,
     pub get_unconfirmed_orders: Option<bool>,
     pub status_id: Option<i64>,
     pub filter_email: Option<String>,
+    pub filter_order_source: Option<String>,
+    pub filter_order_source_id: Option<String>,
 }
 
 impl RequestTrait<GetOrdersResponse> for GetOrders {

@@ -20,6 +20,8 @@ pub struct DetailedProductData {
     pub stock: HashMap<String, i64>,
     pub locations: HashMap<String, String>,
     pub text_fields: HashMap<String, String>,
+    pub average_cost: Decimal,
+    pub average_landed_cost: Decimal,
     pub images: Vec<String>,
     pub links: HashMap<String, ProductLink>,
     pub variants: HashMap<String, serde_json::Value>,
