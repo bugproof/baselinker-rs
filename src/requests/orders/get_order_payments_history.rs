@@ -17,6 +17,7 @@ pub struct Payment {
     /// date of change record (unix time format)
     #[serde(with = "ts_seconds")]
     pub date: DateTime<Utc>,
+    pub comment: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

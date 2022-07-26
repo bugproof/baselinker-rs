@@ -58,24 +58,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let order_statuses = baselinker.send(&GetOrderStatusList {}).await?.statuses;
     println!("{:?}", order_statuses);
 
-    /*let products_list = baselinker.send(
-        &GetInventoryProductsList {
-            inventory_id: 0,
-            filter_id: Some(added_product_id),
-            filter_category_id: None,
-            filter_ean: None,
-            filter_sku: None,
-            filter_name: None,
-            filter_price_from: None,
-            filter_price_to: None,
-            filter_stock_from: None,
-            filter_stock_to: None,
-            page: None,
-            filter_sort: None
-        }).await?.products;
-
-    let product = products.values().next().unwrap();*/
-
     let added_order_id = baselinker.send(&AddOrder {
         order_status_id: 222146,
         custom_source_id: None,
