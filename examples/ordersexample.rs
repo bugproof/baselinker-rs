@@ -2,7 +2,7 @@ use std::borrow::Borrow;
 use std::collections::HashMap;
 use chrono::{Utc};
 use rust_decimal_macros::dec;
-use baselinker::baselinker::BaseLinkerClient;
+use baselinker::BaseLinkerClient;
 use baselinker::requests::orders::add_order::{AddOrder, Product};
 use baselinker::requests::orders::get_order_status_list::GetOrderStatusList;
 use baselinker::requests::product_catalog::add_inventory_product::AddInventoryProduct;

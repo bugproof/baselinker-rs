@@ -1,5 +1,4 @@
-use baselinker::baselinker::BaseLinkerClient;
-use baselinker::common::Error;
+use baselinker::{BaseLinkerClient, Error};
 use baselinker::requests::courier_shipments::get_couriers_list::GetCouriersList;
 
 #[tokio::main]
